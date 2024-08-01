@@ -1,0 +1,7 @@
+GET /hello 200
+
+Hello, World!
+
+POST /hello 200
+
+Hi!
