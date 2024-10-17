@@ -7,7 +7,7 @@ import (
 )
 
 // Unmarshals the json into `Root`
-func ParseFile(filename string) (root Root, err error) {
+func ParseFile(filename string) (ctx Context, err error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return
@@ -19,7 +19,7 @@ func ParseFile(filename string) (root Root, err error) {
 		return
 	}
 
-	err = json.Unmarshal(byteContent, &root)
+	err = json.Unmarshal(byteContent, &ctx)
 
 	return
 }

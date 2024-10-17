@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"path/filepath"
 
@@ -32,11 +33,21 @@ func main() {
 
 	fileName := args[1]
 
-	root, err := parser.ParseFile(fileName)
+	ctx, err := parser.ParseFile(fileName)
 	if err != nil {
 		fmt.Println("[Error]:", err)
 		return
 	}
 
-	fmt.Println("Selected Port:", root.Port)
+	fmt.Printf("%+v\n\n", ctx)
+
+	fmt.Println("Selected Port:", ctx.Port)
+
+	GenerateHandlers(&ctx)
+	fmt.Printf("Generated handlers for %d routes.", len(ctx.Routes))
+
+	fmt.Printf("Starting server on: 127.0.0.1:%d\n", ctx.Port)
+	address := fmt.Sprintf(":%d", ctx.Port)
+	http.ListenAndServe(address, nil)
+	// TODO: Add graceful handling of ^C
 }

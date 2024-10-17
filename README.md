@@ -16,27 +16,21 @@ Fake any API easily.
             "url": "/hello",
             "GET": {
                 "status": 200,
-                "response": {
-                    "Content-Type": "plaintext",
-                    "value": "Hello, World"
-                }
+                "Content-Type": "text/plain",
+                "response": "Hello, World"
             },
             "POST": {
                 "status": 200,
-                "response": {
-                    "Content-Type": "json",
-                    "value": "{ \"id\": \"1234567890\" }"
-                }
+                "Content-Type": "application/json",
+                "response": "{ \"id\": \"1234567890\" }"
             }
         },
         {
             "url": "/users/:id",
             "GET": {
                 "status": 200,
-                "response": {
-                    "Content-Type": "json",
-                    "value": "{ \"id\": \"${url.id}\", \"name\": \"${random_name()}\", \"age\": \"${random_int(18, 50)}\" }"
-                }
+                "Content-Type": "application/json",
+                "response": "{ \"id\": \"${url.id}\", \"name\": \"${random_name()}\", \"age\": \"${random_int(18, 50)}\" }"
             }
         }
     ]

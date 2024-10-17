@@ -1,6 +1,6 @@
 package parser
 
-type Root struct {
+type Context struct {
 	Port   uint16  `json:"port"`
 	Routes []Route `json:"routes"`
 }
@@ -13,11 +13,7 @@ type Route struct {
 }
 
 type Request struct {
-	Status   uint     `json:"status"`
-	Response Response `json:"response"`
-}
-
-type Response struct {
+	Status      int    `json:"status"`
 	ContentType string `json:"Content-Type"`
-	Value       string `json:"value"`
+	Response    string `json:"response"`
 }
