@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/SaumitraLohokare/fAPI/parser"
@@ -16,12 +17,15 @@ type FAPI_Handler struct {
 func (h FAPI_Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	response, ok := h.Responses[r.Method]
 	if !ok {
+		log.Default().Printf("| %s : %s -> %d", r.URL, r.Method, 500)
 		w.WriteHeader(http.StatusNotImplemented)
 		w.Write([]byte(fmt.Sprintf("%s method not implementd for %s.", r.Method, h.Url)))
+		return
 	}
 
+	log.Default().Printf("| %s : %s -> %d", r.URL, r.Method, response.Status)
+	w.Header().Set("Content-Type", response.ContentType)
 	w.WriteHeader(response.Status)
-	w.Header().Add("Content-Type", response.ContentType)
 	w.Write([]byte(response.Response))
 }
 

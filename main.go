@@ -39,14 +39,17 @@ func main() {
 		return
 	}
 
-	fmt.Printf("%+v\n\n", ctx)
+	// fmt.Printf("%+v\n\n", ctx) // Printing JSON context for debugging
 
 	fmt.Println("Selected Port:", ctx.Port)
 
 	GenerateHandlers(&ctx)
-	fmt.Printf("Generated handlers for %d routes.", len(ctx.Routes))
+	fmt.Printf("Generated handlers for %d routes.\n", len(ctx.Routes))
 
-	fmt.Printf("Starting server on: 127.0.0.1:%d\n", ctx.Port)
+	fmt.Printf("Starting server on: http://127.0.0.1:%d\n\n", ctx.Port)
+
+	fmt.Println("----------------------------------------------------------")
+
 	address := fmt.Sprintf(":%d", ctx.Port)
 	http.ListenAndServe(address, nil)
 	// TODO: Add graceful handling of ^C
