@@ -2,7 +2,6 @@ package parser
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"os"
 )
@@ -11,14 +10,12 @@ import (
 func ParseFile(filename string) (root Root, err error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		fmt.Printf("Error opening file: %v\n", err)
 		return
 	}
 	defer file.Close()
 
 	byteContent, err := io.ReadAll(file)
 	if err != nil {
-		fmt.Printf("Error reading file: %v\n", err)
 		return
 	}
 
