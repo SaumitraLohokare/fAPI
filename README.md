@@ -8,7 +8,7 @@ Fake any API easily.
 
 ## Example JSON
 
-```json
+```js
 {
     "port": 8080,
     "routes": [
