@@ -1,10 +1,16 @@
 # fAPI
 Fake any API easily.
 
-## Plan
+## Build from source
+
+1. Run `go build -o fapi` or `go build -o fapi.exe` on windows.
+
+## Usage
 
 1. Define routes and mock responses in JSON.
 2. Run `fapi <input_file>`
+
+> Examples present in `examples` folder
 
 ## Example JSON
 
@@ -26,8 +32,7 @@ Fake any API easily.
 
 ## Future Plans
 
-- [ ] Add routing expressions to accept variables from URL
-- [ ] Add ability to accept parameters from POST/PUT...
+- [ ] Update routing to match variable URL (eg. `/users/*/`)
 - [ ] Add ability to generate random values for responses
 - [ ] Provide some useful functions for above
 - [ ] Allow users to define their own functions (Maybe LUA? :3)
