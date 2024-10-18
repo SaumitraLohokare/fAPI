@@ -39,8 +39,6 @@ func main() {
 		return
 	}
 
-	// fmt.Printf("%+v\n\n", ctx) // Printing JSON context for debugging
-
 	fmt.Println("Selected Port:", ctx.Port)
 
 	GenerateHandlers(&ctx)
@@ -52,5 +50,4 @@ func main() {
 
 	address := fmt.Sprintf(":%d", ctx.Port)
 	http.ListenAndServe(address, nil)
-	// TODO: Add graceful handling of ^C
 }

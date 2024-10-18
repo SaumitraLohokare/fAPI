@@ -1,0 +1,36 @@
+{
+    "port": 8080,
+    "routes": [
+        {
+            "url": "/users/",
+            "GET": {
+                "status": 200,
+                "Content-Type": "application/json",
+                "response": "[{\"id\": 1, \"name\": \"Bob\"}, {\"id\": 2, \"name\": \"Jane\"}, {\"id\": 3, \"name\": \"Joe\"}]"
+            },
+            "POST": {
+                "status": 201,
+                "Content-Type": "application/json",
+                "response": "{ \"message\": \"Added user\" }"
+            }
+        },
+        {
+            "url": "/users/1/",
+            "GET": {
+                "status": 200,
+                "Content-Type": "application/json",
+                "response":"{ \"id\": 1, \"name\": \"Bob\" }"
+            },
+            "PUT": {
+                "status": 201,
+                "Content-Type": "application/json",
+                "response": "{ \"message\": \"Updated user\" }"
+            },
+            "DELETE": {
+                "status": 200,
+                "Content-Type": "application/json",
+                "response": "{ \"message\": \"Deleted user\" }"
+            }
+        }
+    ]
+}

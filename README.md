@@ -13,24 +13,11 @@ Fake any API easily.
     "port": 8080,
     "routes": [
         {
-            "url": "/hello",
+            "url": "/hello/",
             "GET": {
                 "status": 200,
                 "Content-Type": "text/plain",
                 "response": "Hello, World"
-            },
-            "POST": {
-                "status": 200,
-                "Content-Type": "application/json",
-                "response": "{ \"id\": \"1234567890\" }"
-            }
-        },
-        {
-            "url": "/users/:id",
-            "GET": {
-                "status": 200,
-                "Content-Type": "application/json",
-                "response": "{ \"id\": \"${url.id}\", \"name\": \"${random_name()}\", \"age\": \"${random_int(18, 50)}\" }"
             }
         }
     ]

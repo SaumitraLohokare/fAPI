@@ -6,10 +6,11 @@ type Context struct {
 }
 
 type Route struct {
-	Url  string  `json:"url"`
-	Get  Request `json:"GET"`
-	Post Request `json:"POST"`
-	// TODO: Add other types of requests
+	Url    string  `json:"url"`
+	Get    Request `json:"GET"`
+	Post   Request `json:"POST"`
+	Put    Request `json:"PUT"`
+	Delete Request `json:"DELETE"`
 }
 
 type Request struct {
