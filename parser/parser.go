@@ -23,3 +23,5 @@ func ParseFile(filename string) (ctx Context, err error) {
 
 	return
 }
+
+// TODO: Add Url validation
